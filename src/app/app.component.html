@@ -55,6 +55,17 @@
 </div>
 
 <div class="content" role="main">
+
+  <span>Press Return Key to add a new task to the list.</span>
+  <button (click)="deleteTasks()">Delete Tasks</button>
+  <input type="text" #txt (keyup.enter)="getTextBoxVal(txt)">
+
+  <div *ngFor="let item of taskList">
+    <div>
+      <input [checked]="item.check" type="checkbox" (click)="changeStyle(item)"><span [ngStyle]="{'text-decoration':item.style}">{{item.text}}</span>
+    </div>
+  </div>
+
 </div>
 
 
